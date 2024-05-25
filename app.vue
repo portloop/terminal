@@ -7,12 +7,15 @@
 
 <style scoped>
   html, body {
-    height: 100vh;
-    background: #fffefa
+    background: #fffefa;
+    height: 100%;
+    overflow: hidden;
   }
 
   div {
-    background-color: #fffefa
+    background-color: #fffefa;
+    height: 100vh;
+    overflow: hidden;
   }
 
 
@@ -21,15 +24,4 @@
     src: url(./assets/Recoleta-Regular.ttf);
   }
 
-  .slide-fade-enter-active, .slide-fade-leave-active {
-    transition: opacity 0.5s, transform 0.5s;
-  }
-  .slide-fade-enter-from, .slide-fade-leave-to {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  .slide-fade-enter-to, .slide-fade-leave-from {
-    opacity: 1;
-    transform: translateY(0);
-  }
 </style>

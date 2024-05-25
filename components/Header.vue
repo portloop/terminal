@@ -13,29 +13,47 @@
         <div class="border-t border-solid border-black/5">
             <div class="flex items-center py-5 justify-center">
                 <div class="flex items-center">
-                    <span class="w-6 h-6 bg-[#f7d147] rounded-full flex items-center text-sm justify-center mr-2">1</span>
+                    <span
+                        class="w-6 h-6 bg-[#f7d147] rounded-full flex items-center text-sm justify-center mr-2">1</span>
                     <div class="text-md font-medium mr-2">Get started</div>
                     <span class="h-[1px] w-8 bg-black/20 mr-2 "> </span>
                 </div>
 
                 <div class="flex items-center">
-                    <span class="w-6 h-6 bg-black/5 rounded-full text-black/20 flex text-sm items-center justify-center mr-2">2</span>
+                    <span
+                        class="w-6 h-6 bg-black/5 rounded-full text-black/20 flex text-sm items-center justify-center mr-2">2</span>
                     <div class="text-md text-black/30 font-medium mr-2">Compare</div>
                     <span class="h-[1px] w-8 bg-black/20 mr-2"> </span>
                 </div>
 
                 <div class="flex items-center">
-                    <span class="w-6 h-6 bg-black/5 rounded-full text-black/20 flex text-sm items-center justify-center mr-2">3</span>
+                    <span
+                        class="w-6 h-6 bg-black/5 rounded-full text-black/20 flex text-sm items-center justify-center mr-2">3</span>
                     <div class="text-md text-black/30 font-medium mr-2">Board</div>
                 </div>
             </div>
         </div>
-        <div class="h-2 w-full bg-[#f7d147]/40"></div>
+        <div class="h-2 w-full bg-[#f7d147]/40">
+            <div class="flex progress h-full bg-[#f7d147] duration-200" :style="{ width: progressBarWidth }"></div>
+        </div>
 
     </div>
 </template>
 <script>
 export default {
+    props: {
+        currentIndex: {
+            type: Array,
+            required: true
+        }
+    },
 
+    computed: {
+        progressBarWidth() {
+            const totalSteps = 12;
+            const activeSteps = this.currentIndex.filter(index => index >= 0 && index < totalSteps).length;
+            return ((activeSteps / totalSteps) * 100) + '%';
+        }
+    }
 }
 </script>
